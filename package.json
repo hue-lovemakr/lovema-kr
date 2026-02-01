@@ -1,0 +1,48 @@
+{
+	"name": "theme-seoul",
+	"displayName": "Seoul theme",
+	"description": "A sophisticated dark theme inspired by the colors of Seoul.",
+	"version": "0.1.5",
+	"publisher": "lovema-kr",
+	"engines": {
+		"vscode": "*"
+	},
+	"icon": "icon.png",
+	"homepage": "https://lovema.kr/seoul",
+	"repository": {
+		"type": "git",
+		"url": "https://lovema.kr/seoul"
+	},
+	"categories": [
+		"Themes"
+	],
+	"galleryBanner": {
+		"color": "#2c2c2c",
+		"theme": "dark"
+	},
+	"contributes": {
+		"themes": [
+			{
+				"id": "SeoulNight",
+				"label": "Seoul Night (서울의 밤)",
+				"uiTheme": "vs-dark",
+				"path": "./themes/seoul-night.json"
+			},
+			{
+				"id": "SeoulDancheong",
+				"label": "Seoul Dancheong (단청)",
+				"uiTheme": "vs-dark",
+				"path": "./themes/seoul-dancheong.json"
+			},
+			{
+				"id": "SeoulMorning",
+				"label": "Seoul Morning (서울의 아침)",
+				"uiTheme": "vs",
+				"path": "./themes/seoul-morning.json"
+			}
+		]
+	},
+	"dependencies": {
+		"@vscode/vsce": "^3.7.1"
+	}
+}

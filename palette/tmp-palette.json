@@ -1,0 +1,164 @@
+{
+  "sections": {
+    "Other": [
+      {
+        "name": "단청빨간색",
+        "rgb": "rgb(38, 58, 28)",
+        "cmyk": "cmyk(4, 100, 71, 20)",
+        "code": "SC0908",
+        "source_file": "symbol_basic_color.pdf"
+      },
+      {
+        "name": "한강은백색",
+        "rgb": "rgb(89, 0, 1)",
+        "cmyk": "cmyk(7, 5, 4, 0)",
+        "code": "SCN902",
+        "source_file": "symbol_basic_color.pdf"
+      }
+    ],
+    "Representative_10": [
+      {
+        "name": "단청빨간색",
+        "rgb": "rgb(38, 58, 28)",
+        "cmyk": "cmyk(4, 100, 71, 20)",
+        "code": "SC0908",
+        "source_file": "seoul_color_10.pdf"
+      },
+      {
+        "name": "한강은백색",
+        "rgb": "rgb(89, 0, 1)",
+        "cmyk": "cmyk(7, 5, 4, 0)",
+        "code": "SCN902",
+        "source_file": "seoul_color_10.pdf"
+      },
+      {
+        "name": "꽃담황토색",
+        "rgb": "rgb(58, 36, 61)",
+        "cmyk": "cmyk(0, 57, 100, 9)",
+        "code": "SC1956",
+        "source_file": "seoul_color_10.pdf"
+      },
+      {
+        "name": "서울하늘색",
+        "rgb": "rgb(85, 139, 207)",
+        "cmyk": "cmyk(63, 30, 0, 0)",
+        "code": "SC7909",
+        "source_file": "seoul_color_10.pdf"
+      },
+      {
+        "name": "남산초록색",
+        "rgb": "rgb(52, 95, 83)",
+        "cmyk": "cmyk(83, 40, 62, 20)",
+        "code": "SC4907",
+        "source_file": "seoul_color_10.pdf"
+      },
+      {
+        "name": "고궁갈색",
+        "rgb": "rgb(32, 11, 7)",
+        "cmyk": "cmyk(53, 66, 63, 30)",
+        "code": "SC0916",
+        "source_file": "seoul_color_10.pdf"
+      },
+      {
+        "name": "기와진회색",
+        "rgb": "rgb(33, 0, 4)",
+        "cmyk": "cmyk(65, 55, 60, 28)",
+        "code": "SC2940",
+        "source_file": "seoul_color_10.pdf"
+      },
+      {
+        "name": "돌담회색",
+        "rgb": "rgb(67, 0, 5)",
+        "cmyk": "cmyk(29, 23, 27, 0)",
+        "code": "SC2920",
+        "source_file": "seoul_color_10.pdf"
+      },
+      {
+        "name": "은행노란색",
+        "rgb": "rgb(79, 17, 55)",
+        "cmyk": "cmyk(0, 23, 67, 0)",
+        "code": "SC1944",
+        "source_file": "seoul_color_10.pdf"
+      },
+      {
+        "name": "삼베연미색",
+        "rgb": "rgb(83, 2, 18)",
+        "cmyk": "cmyk(8, 11, 23, 0)",
+        "code": "SC1941",
+        "source_file": "seoul_color_10.pdf"
+      }
+    ]
+  },
+  "merged": [
+    {
+      "name": "단청빨간색",
+      "rgb": "rgb(38, 58, 28)",
+      "cmyk": "cmyk(4, 100, 71, 20)",
+      "code": "SC0908",
+      "source_file": "seoul_color_10.pdf"
+    },
+    {
+      "name": "한강은백색",
+      "rgb": "rgb(89, 0, 1)",
+      "cmyk": "cmyk(7, 5, 4, 0)",
+      "code": "SCN902",
+      "source_file": "seoul_color_10.pdf"
+    },
+    {
+      "name": "꽃담황토색",
+      "rgb": "rgb(58, 36, 61)",
+      "cmyk": "cmyk(0, 57, 100, 9)",
+      "code": "SC1956",
+      "source_file": "seoul_color_10.pdf"
+    },
+    {
+      "name": "서울하늘색",
+      "rgb": "rgb(85, 139, 207)",
+      "cmyk": "cmyk(63, 30, 0, 0)",
+      "code": "SC7909",
+      "source_file": "seoul_color_10.pdf"
+    },
+    {
+      "name": "남산초록색",
+      "rgb": "rgb(52, 95, 83)",
+      "cmyk": "cmyk(83, 40, 62, 20)",
+      "code": "SC4907",
+      "source_file": "seoul_color_10.pdf"
+    },
+    {
+      "name": "고궁갈색",
+      "rgb": "rgb(32, 11, 7)",
+      "cmyk": "cmyk(53, 66, 63, 30)",
+      "code": "SC0916",
+      "source_file": "seoul_color_10.pdf"
+    },
+    {
+      "name": "기와진회색",
+      "rgb": "rgb(33, 0, 4)",
+      "cmyk": "cmyk(65, 55, 60, 28)",
+      "code": "SC2940",
+      "source_file": "seoul_color_10.pdf"
+    },
+    {
+      "name": "돌담회색",
+      "rgb": "rgb(67, 0, 5)",
+      "cmyk": "cmyk(29, 23, 27, 0)",
+      "code": "SC2920",
+      "source_file": "seoul_color_10.pdf"
+    },
+    {
+      "name": "은행노란색",
+      "rgb": "rgb(79, 17, 55)",
+      "cmyk": "cmyk(0, 23, 67, 0)",
+      "code": "SC1944",
+      "source_file": "seoul_color_10.pdf"
+    },
+    {
+      "name": "삼베연미색",
+      "rgb": "rgb(83, 2, 18)",
+      "cmyk": "cmyk(8, 11, 23, 0)",
+      "code": "SC1941",
+      "source_file": "seoul_color_10.pdf"
+    }
+  ]
+}
