@@ -2,7 +2,7 @@
 	"name": "theme-seoul",
 	"displayName": "Seoul theme",
 	"description": "A sophisticated dark theme inspired by the colors of Seoul.",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"publisher": "lovema-kr",
 	"engines": {
 		"vscode": "*"
@@ -11,7 +11,7 @@
 	"homepage": "https://lovema.kr/seoul",
 	"repository": {
 		"type": "git",
-		"url": "https://lovema.kr/seoul"
+		"url": "https://github.com/hue-lovemakr/lovema-kr.git"
 	},
 	"categories": [
 		"Themes"
