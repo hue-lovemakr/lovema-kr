@@ -80,7 +80,17 @@
         "gitDecoration.ignoredResourceForeground": "#616264",
         "gitDecoration.conflictingResourceForeground": "#8e6f80",
         "diffEditor.insertedTextBackground": "#72c6a533",
-        "diffEditor.removedTextBackground": "#e1635033"
+        "diffEditor.removedTextBackground": "#e1635033",
+        "button.background": "#5ac6d0",
+        "button.foreground": "#1d1e23",
+        "button.hoverBackground": "#49b5bf",
+        "button.border": "#5ac6d055",
+        "button.secondaryBackground": "#252526",
+        "button.secondaryForeground": "#d8c8b2",
+        "button.secondaryHoverBackground": "#262626",
+        "textLink.foreground": "#5ac6d0",
+        "textLink.activeForeground": "#8edde5",
+        "charts.blue": "#5ac6d0"
     },
     "tokenColors": [
         {
