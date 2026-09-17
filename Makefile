@@ -37,7 +37,7 @@ else
 $(error 지원하지 않는 IDE입니다: $(IDE) (cursor 또는 antigravity를 사용하세요))
 endif
 
-# `make version 0.1.15`, `make release 0.1.15`와 `VERSION=...` 형식을 지원합니다.
+# `make version 1.0.1`, `make release 1.0.1`와 `VERSION=...` 형식을 지원합니다.
 VERSION_GOAL := $(word 2,$(MAKECMDGOALS))
 REQUESTED_VERSION := $(if $(VERSION),$(VERSION),$(VERSION_GOAL))
 
@@ -84,9 +84,9 @@ mod-upgrade: ## 모든 npm 의존성을 최신 버전으로 업그레이드합�
 	}
 	@printf '%b\n' '$(COLOR_JADE)$(ANSI_BOLD)✓ 의존성 및 install script 검증 완료$(ANSI_RESET)'
 
-version: ## 패키지 버전을 변경합니다 (예: make version 0.1.15)
+version: ## 패키지 버전을 변경합니다 (예: make version 1.0.1)
 	@if [ -z "$(REQUESTED_VERSION)" ]; then \
-		printf '%b\n' '$(COLOR_GOLD)$(ANSI_BOLD)사용법$(ANSI_RESET)  $(COLOR_SKY)make version 0.1.15$(ANSI_RESET)'; \
+		printf '%b\n' '$(COLOR_GOLD)$(ANSI_BOLD)사용법$(ANSI_RESET)  $(COLOR_SKY)make version 1.0.1$(ANSI_RESET)'; \
 		exit 2; \
 	fi
 	@printf '%b\n' '$(COLOR_GOLD)◆ 버전을 $(REQUESTED_VERSION)(으)로 변경합니다$(ANSI_RESET)'
