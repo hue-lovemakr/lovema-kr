@@ -1,0 +1,62 @@
+name: Release VSIX
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build and publish GitHub Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out release tag
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify tag and package versions
+        shell: bash
+        run: |
+          package_version="$(node -p "require('./package.json').version")"
+          tag_version="${GITHUB_REF_NAME#v}"
+
+          if [ "$package_version" != "$tag_version" ]; then
+            echo "package.json version ($package_version) does not match tag ($tag_version)."
+            exit 1
+          fi
+
+      - name: Build VSIX
+        shell: bash
+        run: |
+          package_version="$(node -p "require('./package.json').version")"
+          npx vsce package \
+            --no-dependencies \
+            --out "theme-seoul-${package_version}.vsix"
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          package_version="$(node -p "require('./package.json').version")"
+          gh release create "$GITHUB_REF_NAME" \
+            "theme-seoul-${package_version}.vsix" \
+            --verify-tag \
+            --generate-notes \
+            --title "Seoul Theme ${GITHUB_REF_NAME}"

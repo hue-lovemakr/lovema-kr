@@ -37,11 +37,11 @@ else
 $(error 지원하지 않는 IDE입니다: $(IDE) (cursor 또는 antigravity를 사용하세요))
 endif
 
-# `make version 0.1.15`와 `make version VERSION=0.1.15`를 모두 지원합니다.
+# `make version 0.1.15`, `make release 0.1.15`와 `VERSION=...` 형식을 지원합니다.
 VERSION_GOAL := $(word 2,$(MAKECMDGOALS))
 REQUESTED_VERSION := $(if $(VERSION),$(VERSION),$(VERSION_GOAL))
 
-ifneq ($(filter version,$(MAKECMDGOALS)),)
+ifneq ($(filter version release,$(MAKECMDGOALS)),)
 ifneq ($(VERSION_GOAL),)
 .PHONY: $(VERSION_GOAL)
 $(VERSION_GOAL):
@@ -50,7 +50,7 @@ endif
 endif
 
 # 대상
-.PHONY: all install mod-upgrade version package test publish publish-info dist clean help dryrun
+.PHONY: all install mod-upgrade version release package test publish publish-info dist clean help dryrun
 .DEFAULT_GOAL := help
 
 
@@ -92,6 +92,38 @@ version: ## 패키지 버전을 변경합니다 (예: make version 0.1.15)
 	@printf '%b\n' '$(COLOR_GOLD)◆ 버전을 $(REQUESTED_VERSION)(으)로 변경합니다$(ANSI_RESET)'
 	@npm version "$(REQUESTED_VERSION)" --no-git-tag-version --allow-same-version
 	@printf '%b\n' '$(COLOR_JADE)$(ANSI_BOLD)✓ 버전 변경 완료$(ANSI_RESET)'
+
+release: ## 버전 태그를 푸시해 GitHub Release를 생성합니다 (예: make release 1.0.1)
+	@if [ -z "$(REQUESTED_VERSION)" ]; then \
+		printf '%b\n' '$(COLOR_GOLD)$(ANSI_BOLD)사용법$(ANSI_RESET)  $(COLOR_SKY)make release 1.0.1$(ANSI_RESET)'; \
+		exit 2; \
+	fi
+	@if [ "$(PACKAGE_VERSION)" != "$(REQUESTED_VERSION)" ]; then \
+		printf '%b\n' '$(COLOR_CORAL)$(ANSI_BOLD)✗ package.json 버전($(PACKAGE_VERSION))과 릴리스 버전($(REQUESTED_VERSION))이 다릅니다.$(ANSI_RESET)'; \
+		exit 1; \
+	fi
+	@if [ -n "$$(git status --porcelain)" ]; then \
+		printf '%b\n' '$(COLOR_CORAL)$(ANSI_BOLD)✗ 커밋되지 않은 변경이 있습니다. 먼저 커밋해 주세요.$(ANSI_RESET)'; \
+		exit 1; \
+	fi
+	@if [ "$$(git branch --show-current)" != "main" ]; then \
+		printf '%b\n' '$(COLOR_CORAL)$(ANSI_BOLD)✗ main 브랜치에서만 릴리스할 수 있습니다.$(ANSI_RESET)'; \
+		exit 1; \
+	fi
+	@printf '\n%b\n' '$(COLOR_SKY)$(ANSI_BOLD)◆ origin/main과 릴리스 태그를 확인합니다$(ANSI_RESET)'
+	@git fetch origin main --tags
+	@if [ "$$(git rev-parse HEAD)" != "$$(git rev-parse origin/main)" ]; then \
+		printf '%b\n' '$(COLOR_CORAL)$(ANSI_BOLD)✗ 현재 커밋이 origin/main과 일치하지 않습니다. 먼저 push 또는 pull해 주세요.$(ANSI_RESET)'; \
+		exit 1; \
+	fi
+	@if git rev-parse --verify --quiet "refs/tags/v$(REQUESTED_VERSION)" >/dev/null; then \
+		printf '%b\n' '$(COLOR_CORAL)$(ANSI_BOLD)✗ v$(REQUESTED_VERSION) 태그가 이미 존재합니다.$(ANSI_RESET)'; \
+		exit 1; \
+	fi
+	@printf '%b\n' '$(COLOR_GOLD)◆ v$(REQUESTED_VERSION) 태그를 생성하고 GitHub에 푸시합니다$(ANSI_RESET)'
+	@git tag -a "v$(REQUESTED_VERSION)" -m "Release v$(REQUESTED_VERSION)"
+	@git push origin "v$(REQUESTED_VERSION)"
+	@printf '%b\n' '$(COLOR_JADE)$(ANSI_BOLD)✓ GitHub Release 워크플로가 시작되었습니다: v$(REQUESTED_VERSION)$(ANSI_RESET)'
 
 package: ## .vsix 확장 프로그램을 만듭니다
 	@printf '\n%b\n' '$(COLOR_SKY)$(ANSI_BOLD)◆ VSIX 패키지를 생성합니다$(ANSI_RESET)'
