@@ -2,7 +2,7 @@
 	"name": "theme-seoul",
 	"displayName": "Seoul theme",
 	"description": "A sophisticated dark theme inspired by the colors of Seoul.",
-	"version": "0.1.10",
+	"version": "1.0.1",
 	"publisher": "lovema-kr",
 	"engines": {
 		"vscode": "*"
@@ -19,6 +19,9 @@
 	"galleryBanner": {
 		"color": "#2c2c2c",
 		"theme": "dark"
+	},
+	"allowScripts": {
+		"@vscode/vsce-sign": true
 	},
 	"contributes": {
 		"themes": [
@@ -42,7 +45,7 @@
 			}
 		]
 	},
-	"dependencies": {
-		"@vscode/vsce": "^3.9.2"
+	"devDependencies": {
+		"@vscode/vsce": "^4.0.0"
 	}
 }
